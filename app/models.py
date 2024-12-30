@@ -6,6 +6,9 @@ class Department(models.Model):
     dept_No=models.IntegerField(primary_key=True)
     dept_location=models.CharField(max_length=100)
 
+    def __str__(self):
+     return self.dept_name
+
 class Employee(models.Model):
     Employee_no=models.IntegerField(primary_key=True)
     Employee_name=models.CharField(max_length=100)
@@ -16,4 +19,6 @@ class Employee(models.Model):
     hiredate=models.DateField(auto_now=True)
     dept_name=models,models.ForeignKey("Department", on_delete=models.CASCADE)
     mgr=models.ForeignKey('self',on_delete=models.SET_NULL,null=True,blank=True)
+    def __str__(self):
+     return self.Employee_name
     
